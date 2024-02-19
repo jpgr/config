@@ -3,29 +3,32 @@
 BASE_PATH=`readlink -f $(dirname $(pwd)/$0)`
 START="\e[1;32m::\e[0m "
 
-echo -e "${START} Installing neovim"
-TARGET=${BASE_PATH}/nvim
-if [ -L ~/.config/nvim ]; then
-  OLD_LINK=`readlink -f ~/.config/nvim`
-  if [ $TARGET = $OLD_LINK ]; then
-    echo nvim config already installed
-  else
-    echo ~/.config/nvim already linked to ${OLD_LINK}
-    echo relink to ${TARGET}
-    rm ~/.config/nvim
-    ln -s ${TARGET} ~/.config/nvim
-  fi
-elif [ -d ~/.config/nvim ]; then
-  echo directory ~/.config/nvim already exist
-  echo moving to ~/.config/nvim.old
-  mv ~/.config/nvim ~/.config/nvim.old
-  ln -s ${TARGET} ~/.config/nvim
-elif [ -f ~/.config/nvim ]; then
-  echo file ~/.config/nvim already exist
-  echo moving to ~/.config/nvim.old
-  mv ~/.config/nvim ~/.config/nvim.old
-  ln -s ${TARGET} ~/.config/nvim
-else
-  ln -s ${TARGET} ~/.config/nvim
-fi
 
+install_link () {
+  TARGET=$1
+  LINK=$2
+  if [ -L $LINK ]; then
+    OLD_LINK=`readlink -f $LINK`
+    if [ $TARGET = $OLD_LINK ]; then
+      echo nvim config already installed
+    else
+      echo $LINK already linked to $OLD_LINK
+      echo relink to $TARGET
+      rm $LINK
+      ln -s $TARGET $LINK
+    fi
+  elif [ -e $LINK ]; then
+    echo $LINK already exist
+    echo moving to ${LINK}.old
+    mv $LINK ${LINK}.old
+    ln -s $TARGET $LINK
+  else
+    ln -s $TARGET $LINK
+  fi
+}
+
+echo -e "${START} Installing neovim"
+install_link ${BASE_PATH}/nvim ~/.config/nvim
+
+echo -e "${START} Installing alacritty"
+install_link ${BASE_PATH}/term/alacritty.toml ~/.config/alacritty/alacritty.toml
