@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set +e
 
 BASE_PATH=`readlink -f $(dirname $(pwd)/$0)`
 START="\e[1;32m::\e[0m "
