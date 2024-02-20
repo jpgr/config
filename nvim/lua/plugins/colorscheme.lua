@@ -8,13 +8,22 @@ return {
   --     vim.o.background = 'dark'
   --   end
   -- },
+  -- {
+  --   "neanias/everforest-nvim",
+  --   lazy = false,
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     require("everforest").setup({})
+  --     -- vim.cmd [[colorscheme everforest]]
+  --   end
+  -- },
   {
-    "neanias/everforest-nvim",
+    'AlexvZyl/nordic.nvim',
     lazy = false,
-    priority = 1000, -- make sure to load this before all the other start plugins
+    priority = 1000,
     config = function()
-      require("everforest").setup({})
-      vim.cmd[[colorscheme everforest]]
+      require('nordic').load()
+      vim.cmd [[colorscheme nordic]]
     end
   },
   {
@@ -23,7 +32,7 @@ return {
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'everforest',
+        theme = 'nordic',
       },
     }
   },
