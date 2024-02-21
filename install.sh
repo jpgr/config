@@ -24,6 +24,7 @@ install_link () {
     mv $LINK ${LINK}.old
     ln -s $TARGET $LINK
   else
+    mkdir -p $(dirname $LINK)
     ln -s $TARGET $LINK
   fi
 }
