@@ -11,7 +11,7 @@ install_link () {
   if [ -L $LINK ]; then
     OLD_LINK=`readlink -f $LINK`
     if [ $TARGET = $OLD_LINK ]; then
-      echo nvim config already installed
+      echo config already linked
     else
       echo $LINK already linked to $OLD_LINK
       echo relink to $TARGET
