@@ -29,6 +29,12 @@ install_link () {
   fi
 }
 
+echo -e "${START} Installing git-prompt"
+install_link ${BASE_PATH}/shell/git-prompt.sh ~/.local/share/git-prompt.sh
+
+echo -e "${START} Installing bashrc"
+install_link ${BASE_PATH}/shell/.bashrc ~/.bashrc
+
 echo -e "${START} Installing neovim"
 install_link ${BASE_PATH}/nvim ~/.config/nvim
 
