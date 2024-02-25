@@ -7,6 +7,11 @@ elif [ -f /etc/bash.bashrc ]; then
   source /etc/bash.bashrc
 fi
 
+PROMPT_COMMAND='history -a'
+HISTSIZE=2000
+HISTFILESIZE=5000
+HISTTIMEFORMAT='%F %T - '
+
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
