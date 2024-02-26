@@ -6,7 +6,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "lua_ls", "rust_analyzer" }
+      ensure_installed = { "lua_ls", "rust_analyzer", "lemminx" }
     },
   },
   {
@@ -18,6 +18,9 @@ return {
         capabilities = capabilities
       })
       lspconfig.rust_analyzer.setup({
+        capabilities = capabilities
+      })
+      lspconfig.lemminx.setup({
         capabilities = capabilities
       })
       vim.keymap.set('n', '<leader>ci', vim.lsp.buf.hover, { desc = 'hover info' })
