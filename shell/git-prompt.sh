@@ -3,7 +3,7 @@
 __git_ps1 () {
   format=$1
   inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
-  if [ ! $inside_git_repo ]; then
+  if [ -z "$inside_git_repo" -o "$inside_git_repo" != true ]; then
     return 0
   fi
 
