@@ -12,5 +12,7 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 
+vim.cmd("set undofile")
+
 vim.opt.scrolloff = 10
 vim.opt.colorcolumn = '100'

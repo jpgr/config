@@ -2,22 +2,29 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-ui-select.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+      "debugloop/telescope-undo.nvim"
+    },
     config = function()
       require("telescope").setup {
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({})
-          }
+          },
+          undo = {}
         }
       }
       require("telescope").load_extension("ui-select")
+      require("telescope").load_extension("undo")
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>ff', "<cmd> lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", { desc = 'find file' })
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'live grep' })
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'find buffer' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'find help' })
       vim.keymap.set('n', '<leader>ft', builtin.treesitter, { desc = 'find treesitter' })
+      vim.keymap.set('n', '<leader>fu', "<cmd>Telescope undo<cr>", { desc = 'Undo tree' })
     end
   },
   {
