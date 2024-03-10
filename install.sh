@@ -40,3 +40,7 @@ install_link ${BASE_PATH}/nvim ~/.config/nvim
 
 echo -e "${START} Installing alacritty"
 install_link ${BASE_PATH}/term/alacritty.toml ~/.config/alacritty/alacritty.toml
+
+echo -e "${START} Installing lazygit"
+install_link ${BASE_PATH}/tools/lazygit.yml ~/.config/lazygit/config.yml
+
