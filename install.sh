@@ -35,12 +35,14 @@ install_link ${BASE_PATH}/shell/git-prompt.sh ~/.local/share/git-prompt.sh
 echo -e "${START} Installing bashrc"
 install_link ${BASE_PATH}/shell/.bashrc ~/.bashrc
 
-echo -e "${START} Installing neovim"
+echo -e "${START} Installing neovim config"
 install_link ${BASE_PATH}/nvim ~/.config/nvim
 
-echo -e "${START} Installing alacritty"
+echo -e "${START} Installing alacritty config"
 install_link ${BASE_PATH}/term/alacritty.toml ~/.config/alacritty/alacritty.toml
 
-echo -e "${START} Installing lazygit"
+echo -e "${START} Installing lazygit config"
 install_link ${BASE_PATH}/tools/lazygit.yml ~/.config/lazygit/config.yml
 
+echo -e "${START} Installing fzf config"
+install_link ${BASE_PATH}/tools/fzf.bash ~/.config/fzf.bash

@@ -23,6 +23,10 @@ if type -P rustup > /dev/null; then
   source <( rustup completions bash cargo )
 fi
 
+if type -P fzf > /dev/null && test -f ~/.config/fzf.bash; then
+  source ~/.config/fzf.bash
+fi
+
 #PROMPT_DIRTRIM=2
 source ~/.local/share/git-prompt.sh
 PS1='\[\033[00;37m\][\D{%H:%M}] \[\033[01;32m\]\u\[\033[01;37m\]:\w$(__git_ps1 " \[\033[01;34m\][\[\033[00;37m\]%s\[\033[01;34m\]]") \[\033[01;31m\]|\[\033[00m\] '
