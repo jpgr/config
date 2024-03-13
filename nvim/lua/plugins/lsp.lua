@@ -26,6 +26,7 @@ return {
       vim.keymap.set('n', '<leader>ci', vim.lsp.buf.hover, { desc = 'hover info' })
       vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, { desc = 'go to definition' })
       vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'code action' })
+      vim.keymap.set('n', '<leader>cv', vim.diagnostic.open_float, { desc = 'diagnostics' })
     end
   },
   {
