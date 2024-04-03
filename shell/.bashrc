@@ -18,6 +18,8 @@ alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
 alias vim='nvim'
 
+export LESS="--mouse"
+
 if type -P rustup > /dev/null; then
   source <( rustup completions bash )
   source <( rustup completions bash cargo )

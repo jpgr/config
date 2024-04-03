@@ -47,6 +47,9 @@ install_link ${BASE_PATH}/tools/lazygit.yml ~/.config/lazygit/config.yml
 echo -e "${START} Installing fzf config"
 install_link ${BASE_PATH}/tools/fzf.bash ~/.config/fzf.bash
 
+echo -e "${START} Installing tmux config"
+install_link ${BASE_PATH}/term/.tmux.conf ~/.tmux.conf
+
 echo -e "${START} Installing wezterm config"
 install_link ${BASE_PATH}/term/wezterm.lua ~/.wezterm.lua
 
