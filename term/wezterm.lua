@@ -35,10 +35,32 @@ config.color_schemes = {
   ['default'] = colors,
 }
 config.color_scheme = 'default'
-
-
+config.bold_brightens_ansi_colors = 'No'
 config.font = wezterm.font('JetBrainsMonoNL Nerd Font', { weight = 'Light' })
 
+config.font_rules = {
+  {
+    intensity = 'Bold',
+    italic = false,
+    font = wezterm.font('JetBrainsMonoNL Nerd Font', { weight = 'Bold' })
+  },
+  {
+    intensity = 'Bold',
+    italic = true,
+    font = wezterm.font('JetBrainsMonoNL Nerd Font', { weight = 'Bold', style = 'Italic'})
+  },
+  {
+    intensity = 'Normal',
+    italic = true,
+    font = wezterm.font('JetBrainsMonoNL Nerd Font', { weight = 'ExtraLight', style= 'Italic' })
+  },
+}
+
+-- config.font_antialias = "Subpixel"
+-- config.freetype_load_target = "Light"
+-- config.freetype_render_target = 'HorizontalLcd'
+-- config.freetype_interpreter_version = 40
+-- config.freetype_load_flags = "NO_AUTOHINT|MONOCHROME"
 config.window_padding = {
   left = 0,
   right = 0,
