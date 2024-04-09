@@ -86,6 +86,19 @@ config.colors = {
   },
 }
 
+config.keys = {
+  {
+    key = '_',
+    mods = 'CTRL|ALT',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = '-',
+    mods = 'CTRL|ALT',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+}
+
 config.window_frame = {
   font = wezterm.font('JetBrainsMonoNL Nerd Font', { weight = 'Light' }),
   font_size = 10.0,
